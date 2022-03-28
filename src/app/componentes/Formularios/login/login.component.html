@@ -4,14 +4,31 @@
             <h3>Sign In</h3>
         </div>
         <div class="card- body">
+            <form #forma="ngForm">
             <label for="email" class="form-label text-white">Email address</label>
-            <input type="email" name="email" autocomplete="off" class="form-control inputs" id="inpEmail" placeholder="Email" aria-describedby="emailHelp" pattern="^[a-z]+[Aa-Zz]+[a-z0-9._-]+@[a-z]+\.[a-z.]{2,5}$"/>
+            <input type="email"  [(ngModel)]="user.email" #email="ngModel" email="true" name="email" autocomplete="off" required [ngClass]="{'is-valid': !email.invalid, 'is-invalid': email.invalid}" class="form-control inputs" id="inpEmail" placeholder="Email" email="true"/>
+            <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors?.['required']">
+                  Introduzca un correo electrónico válido por favor 
+                </div>
+                <div *ngIf="email.errors && email.errors?.['email']">
+                  El correo electrónico no sigue el formato correcto. Sigue este ejemplo: pedro@gmail.com
+                </div>
+              </div>
             <br>
-            <label for="password" class="form-label text-white">Password</label>
-            <input type = "password" name="password" autocomplete="off" class="form-control inputs" id="password" placeholder="Password">
+            <input type = "password" #password="ngModel"  minlength="8" [(ngModel)]="user.password" name="password" autocomplete="off" class="form-control inputs" id="password" required [ngClass]="{'is-valid': !password.invalid, 'is-invalid': password.invalid}" placeholder="password">
+            <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div *ngIf="password.errors?.['minlength']">
+                  Introduzca una Contraseña con 8 Caracteres Minimo
+                </div>
+                <div *ngIf="password.errors?.['required']">
+                  Introduzca una contraseña por favor
+                </div>
+              </div>
             <br>
             <button (click)="send()"class="logo" type="submit">Login</button>
             <p class="text-center"><a routerLink="/Registro" class="btn text-white">You dont have an account?</a></p>
+        </form>
         </div>
     </div>
 </div>

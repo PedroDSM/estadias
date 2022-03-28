@@ -6,21 +6,15 @@ import { RegistroComponent } from './componentes/Formularios/registro/registro.c
 import { CategoriasComponent } from './componentes/Vistas/categorias/categorias.component';
 import { RolesComponent } from './componentes/Usuarios/roles/roles.component';
 import { UsersComponent } from './componentes/Usuarios/users/users.component';
-import { RutasprotegidasComponent } from './componentes/RutasProtegidas/rutasprotegidas/rutasprotegidas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Login', pathMatch: 'full' },
   { path: 'Login', component:LoginComponent},
   { path: 'Registro', component:RegistroComponent},
-  
-  { path: '', component: RutasprotegidasComponent,
-    children:[
   { path: 'Inicio', component:InicioComponent},
   { path: 'Categorias', component:CategoriasComponent},
   { path: 'Roles', component:RolesComponent},
   { path: 'Users', component:UsersComponent}
-    ]
-  }
 ];
 
 @NgModule({
