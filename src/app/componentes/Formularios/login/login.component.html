@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="box">
+        <div class="titulo">
+            <h3>Sign In</h3>
+        </div>
+        <div class="card- body">
+            <label for="email" class="form-label text-white">Email address</label>
+            <input type="email" name="email" autocomplete="off" class="form-control inputs" id="inpEmail" placeholder="Email" aria-describedby="emailHelp" pattern="^[a-z]+[Aa-Zz]+[a-z0-9._-]+@[a-z]+\.[a-z.]{2,5}$"/>
+            <br>
+            <label for="password" class="form-label text-white">Password</label>
+            <input type = "password" name="password" autocomplete="off" class="form-control inputs" id="password" placeholder="Password">
+            <br>
+            <button (click)="send()"class="logo" type="submit">Login</button>
+            <p class="text-center"><a routerLink="/Registro" class="btn text-white">You dont have an account?</a></p>
+        </div>
+    </div>
+</div>

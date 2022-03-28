@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="box">
+        <div class="titulo">
+            <h3>Register</h3>
+        </div>
+        <div class="card- body">
+            <form #forma="ngForm">
+            <label for="nombre" class="form-label text-white">Name</label>
+            <input type="text" name="name" autocomplete="off" class="form-control inputs" id="name" [(ngModel)]="user.nombre" minlength="5" #nombre="ngModel" required [ngClass]="{'is-valid': !nombre.invalid, 'is-invalid': nombre.invalid}" placeholder="Username"/>
+            <div class="invalid-feedback" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre.errors?.['minlength']">
+                    Introduzca un Nombre con 5 Caracteres Minimo
+                </div>
+                <div *ngIf="nombre.errors?.['required']">
+                    Introduzca un Nombre Valido
+                </div>
+            </div>
+            <br>
+            <label for="email" class="form-label text-white">Email Adress</label>
+            <input type="email" [(ngModel)]="user.email" #email="ngModel" placeholder="Email" email="true" name="email" autocomplete="off" class="form-control inputs" id="email" required [ngClass]="{'is-valid': !email.invalid, 'is-invalid': email.invalid}"/>
+            <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors?.['required']">
+                  Introduzca un correo electrónico válido por favor 
+                </div>
+                <div *ngIf="email.errors && email.errors?.['email']">
+                  El correo electrónico no sigue el formato correcto. Sigue este ejemplo: pedro@gmail.com
+                </div>
+              </div>
+            <br>
+            <label for="password" class="form-label text-white">Password</label>
+            <input type = "password" #password="ngModel"  minlength="8" [(ngModel)]="user.password" name="password" autocomplete="off" class="form-control inputs" id="password" required [ngClass]="{'is-valid': !password.invalid, 'is-invalid': password.invalid}" placeholder="password">
+            <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+                <div *ngIf="password.errors?.['minlength']">
+                  Introduzca una Contraseña con 8 Caracteres Minimo
+                </div>
+                <div *ngIf="password.errors?.['required']">
+                  Introduzca una contraseña por favor
+                </div>
+              </div>
+            <br>
+            <button (click)="register()"  class="logo" type="submit">Register</button>
+            <br>
+            <p class="text-center"><a routerLink="/Login" class="btn text-white">You have an account?</a></p>
+        </form>
+        </div>
+    </div>
+</div>
+<br>
+<div *ngIf="error" class="container card" >
+  <div class="row card-body align-items-center">
+    <div class="col align-self-center">
+      <div class="al" role="alert">
+        NO SE PUDO CREAR EL RECURSO, VUELVA A INTENTARLO
+      </div>
+    </div>
+  </div>
+</div>

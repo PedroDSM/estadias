@@ -1,0 +1,27 @@
+.box{
+    background: #263238;
+}
+.titulo{
+    color: #fff;
+    font-size: 50px;
+    padding: 5px;
+}
+.inputs{
+    background: #fff;
+    color: #263238;
+    border-radius:  0.700rem;
+    border-width: 0.12rem;
+    border-color: #263238;
+}
+.logo{
+    background: #fff;
+    text-align: center;
+    width: 13rem;
+    min-width: 13rem;
+    border-radius: 0.313rem;
+    padding: 0.313rem;
+    font-size: 25px;
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+}
